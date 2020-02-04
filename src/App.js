@@ -19,7 +19,11 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <Welcome text="Welcome to Using Props" variable="More Variables" />
+          <Welcome 
+            text="Welcome to Using Props" 
+            variable="More Variables" 
+            toggle={this.state.toggle}
+          />
           {
             this.state.toggle && 
             <p>This should show or hide</p>
@@ -41,7 +45,8 @@ class App extends Component {
 
 class Welcome extends Component {
   render() {
-    const { text, variable } = this.props
+    const { text, variable, toggle } = this.props;
+    console.log(toggle);
     return (
       <h1 className="App-title">{text} with {variable}</h1>
     )
