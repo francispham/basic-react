@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Welcome text="Welcome to Using Props" />
+        <Welcome text="Welcome to Using Props" variable="More Variables" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -26,8 +26,9 @@ function App() {
 
 class Welcome extends Component {
   render() {
+    const { text, variable } = this.props
     return (
-      <h1 className="App-title">{this.props.text}</h1>
+      <h1 className="App-title">{text} with {variable}</h1>
     )
   }
 }
