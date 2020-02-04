@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Movie from './Movie';
+
 const movies = [
   {
     id: 1,
@@ -33,16 +35,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        {movies.map(movie => <div key={movie.id}>{movie.title}</div>)}        
-        {/* Same as:
-          {movies.map((movie) => {
-            return (
-              <div key={movie.id}>
-                {movie.title}
-              </div>
-            ) 
-          })} 
-        */}
+        {movies.map(movie => <Movie key={movie.id} movie={movie} />)}        
       </div>
     );
   }
