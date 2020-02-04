@@ -4,8 +4,25 @@ import './App.css';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    console.log("Constructor");
+  }
+
+  componentWillMount() {
+    // For Setting State without Triggering a Second Render (render() hasn't called yet!)
+    console.log("Will Mount");
+  }
+
+  componentDidMount() {
+    // Interactions is now existed and will be available for Further Actions. 
+    // Will Trigger a Re-render. 
+    console.log("Mounted");
+
+  }
+
   state = {
-    toggle: true
+    toggle: true //Happen when called render()
   }
 
   toggle = () => {
