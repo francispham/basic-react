@@ -3,28 +3,31 @@ import logo from './logo.svg';
 import './App.css';
 
 import Movie from './Movie';
-import keys from './config/keys'
-class App extends Component {
+import keys from './config/keys';
 
+class App extends Component {
+  // eslint-disable-next-line react/state-in-constructor
   state = {
-    movies: []
+    movies: [],
   }
 
   async componentDidMount() {
     try {
       const res = await fetch(
-        keys.moviesAPI
+        keys.moviesAPI,
       );
       const movies = await res.json();
       this.setState({
-        movies: movies.results
-      })
-    } catch(e) {
+        movies: movies.results,
+      });
+    } catch (e) {
+      // eslint-disable-next-line no-console
       console.log(e);
     }
   }
 
   render() {
+    const { movies } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -38,7 +41,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        {this.state.movies.map(movie => <Movie key={movie.id} movie={movie} />)}        
+        {movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
       </div>
     );
   }
