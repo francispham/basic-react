@@ -3,24 +3,26 @@ import logo from './logo.svg';
 import './App.css';
 
 import Movie from './Movie';
-
-const movies = [
-  {
-    id: 1,
-    title: 'Star Wars',
-    desc: 'A space Movie'
-  }, {
-    id: 2,
-    title: 'Spider Main'
-  },{
-    id: 3,
-    title: 'Batman'
-  }, {
-    id: 4,
-    title: 'Superman'
-  }
-]
+import keys from './config/keys'
 class App extends Component {
+
+  state = {
+    movies: []
+  }
+
+  async componentDidMount() {
+    try {
+      const res = await fetch(
+        keys.moviesAPI
+      );
+      const movies = await res.json();
+      this.setState({
+        movies: movies.results
+      })
+    } catch(e) {
+      console.log(e);
+    }
+  }
 
   render() {
     return (
@@ -36,7 +38,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        {movies.map(movie => <Movie key={movie.id} movie={movie} desc={movie.desc} />)}        
+        {this.state.movies.map(movie => <Movie key={movie.id} movie={movie} />)}        
       </div>
     );
   }
