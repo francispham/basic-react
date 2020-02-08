@@ -32,6 +32,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+        </header>
+        {movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
+        <div>
+          <hr />
           <a
             className="App-link"
             href="https://reactjs.org"
@@ -40,8 +44,7 @@ class App extends Component {
           >
             Learn React
           </a>
-        </header>
-        {movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
+        </div>
       </div>
     );
   }
