@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 
-const POSTER_PATH = 'http://image.tmdb.org/t/p/w154';
+import keys from './config/keys';
 
 const Movie = ({ movie }) => (
   // {movie} is shorted for props because of ES6 Object Destructuring
   <Link to={`/${movie.id}`} >
     <div>
-      <img src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
+      <img src={`${keys.POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
     </div>
   </Link>
 );
