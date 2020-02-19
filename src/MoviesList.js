@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import Movie from './Movie';
 import keys from './config/keys';
 
 import { MovieGrid } from './styledComponents';
 
-class MoviesList extends Component {
+class MoviesList extends PureComponent {
     state = {
         movies: [],
     }
