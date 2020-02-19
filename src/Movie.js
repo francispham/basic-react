@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 
+import { Poster } from "./styledComponents";
+
 import keys from './config/keys';
 
 const Movie = ({ movie }) => (
   // {movie} is shorted for props because of ES6 Object Destructuring
   <Link to={`/${movie.id}`} >
-    <div>
-      <img src={`${keys.POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
-    </div>
+    <Poster src={`${keys.POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
   </Link>
 );
 
@@ -26,3 +26,5 @@ Movie.propTypes = {
     poster_path: PropTypes.string.isRequired,
   }).isRequired,
 };
+
+

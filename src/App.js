@@ -25,7 +25,6 @@ const App = () => (
         <Route exact path="/:id" component={MovieDetail} />
       </Switch>
       <div>
-        <hr />
         <a
           className="App-link"
           href="https://reactjs.org"

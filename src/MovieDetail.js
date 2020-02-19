@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import keys from './config/keys';
 
+import { Poster, MovieWrapper, MovieInfo } from "./styledComponents";
+
 class MovieDetail extends Component {
     state = {
         movie: {},
@@ -25,13 +27,20 @@ class MovieDetail extends Component {
     render() {
         const { movie } = this.state;
         return (
-            <div>
-                <img src={`${keys.BACKDROP_PATH}${movie.poster_path}`} alt={movie.title} />
-                <h1>{movie.title}</h1>
-                <h4>{movie.release_date}</h4>
-                <p>{movie.overview}</p>
-            </div>
-        )
+            <MovieWrapper backdrop={`${keys.BACKDROP_PATH}${movie.poster_path}`}>
+                <MovieInfo>
+                    <Poster
+                        src={`${keys.POSTER_PATH}${movie.poster_path}`}
+                        alt={movie.title}
+                    />
+                    <div>
+                        <h1>{movie.title}</h1>
+                        <h4>{movie.release_date}</h4>
+                        <p>{movie.overview}</p>
+                    </div>
+                </MovieInfo>
+            </MovieWrapper>
+        );
     }
 
 }

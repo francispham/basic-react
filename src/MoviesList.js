@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Movie from './Movie';
 import keys from './config/keys';
 
+import { MovieGrid } from './styledComponents';
+
 class MoviesList extends Component {
     state = {
         movies: [],
@@ -26,9 +28,9 @@ class MoviesList extends Component {
     render() {
         const { movies } = this.state;
         return (
-            <div>
+            <MovieGrid>
                 {movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
-            </div>
+            </MovieGrid>
         )
     }
 
