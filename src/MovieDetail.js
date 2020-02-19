@@ -27,6 +27,11 @@ class MovieDetail extends Component {
 
     render() {
         const { movie } = this.state;
+
+        let detail = 'hi';
+        if(this.state.movie.title) {
+            detail = 'Hello';
+        }
         return (
             <MovieWrapper backdrop={`${keys.BACKDROP_PATH}${movie.poster_path}`}>
                 <MovieInfo>
@@ -34,6 +39,11 @@ class MovieDetail extends Component {
                         <Poster src={`${keys.POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
                     </Overdrive>
                     <div>
+                        {this.state.movie.title ? (
+                            <h2>Title:</h2>
+                        ) : (
+                            <h2>No Title</h2>
+                        )}
                         <h1>{movie.title}</h1>
                         <h4>{movie.release_date}</h4>
                         <p>{movie.overview}</p>
