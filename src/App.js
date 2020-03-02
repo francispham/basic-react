@@ -11,6 +11,7 @@ import './App.css';
 
 import MoviesList from './MoviesList';
 import MovieDetail from './MovieDetail';
+import ReactHooks from './ReactHooks';
 
 const App = () => (
   <Router>
@@ -22,9 +23,14 @@ const App = () => (
       </header>
       <Switch>
         <Route exact path="/" component={MoviesList} />
+        <Route exact path="/ReactHooks" component={ReactHooks} />
         <Route exact path="/:id" component={MovieDetail} />
       </Switch>
       <div>
+        <Link to="/ReactHooks">
+          Learn React Hooks
+        </Link>
+        <span>    OR   </span>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -33,6 +39,7 @@ const App = () => (
         >
           Learn React
         </a>
+
       </div>
     </div>
   </Router>
