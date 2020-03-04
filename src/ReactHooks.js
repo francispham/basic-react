@@ -2,12 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Toggle from './Toggle';
 
 const ReactHooks = () => {
-    // const [value, setValue] = useState(initialState);
-    const [name, setName] = useState('');
-
-    useEffect(() => {
-        document.title = name;
-    });
+    const [name, setName] = useTitleInput('');
 
     return (
         <div className="main-wrapper">
@@ -31,8 +26,18 @@ const ReactHooks = () => {
 }
 
 const formSubmit = (value, setValue) => {
-    console.log('Email Sent to ' + value + '!');
+    console.log('Tittle is ' + value + '!');
     setValue(''); //This will Clear the Input after Form is Submitted
+}
+
+
+// Custom Hook:
+function useTitleInput(initialValue) {
+    const [value, setValue] = useState(initialValue);
+    useEffect(() => {
+        document.title = value;
+    });
+    return [value, setValue];
 }
 
 export default ReactHooks;
