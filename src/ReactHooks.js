@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Toggle from './Toggle';
 
 const ReactHooks = () => {
     // const [value, setValue] = useState(initialState);
     const [name, setName] = useState('');
+
+    useEffect(() => {
+        document.title = name;
+    });
 
     return (
         <div className="main-wrapper">
