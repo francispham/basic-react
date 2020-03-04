@@ -26,11 +26,11 @@ const App = () => (
         <Route exact path="/ReactHooks" component={ReactHooks} />
         <Route exact path="/:id" component={MovieDetail} />
       </Switch>
-      <div>
+      <footer>
         <Link to="/ReactHooks">
           Learn React Hooks
         </Link>
-        <span>    OR   </span>
+        <span>    OR    </span>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -39,8 +39,7 @@ const App = () => (
         >
           Learn React
         </a>
-
-      </div>
+      </footer>
     </div>
   </Router>
 );

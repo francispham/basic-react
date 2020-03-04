@@ -19,6 +19,7 @@ const Toggle = () => {
                 HELLO
                 </button>
             }
+            &nbsp;
             <button onClick={()=> setToggle(!isToggle)}>Toggle</button>
         </div>
     );

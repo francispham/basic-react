@@ -11,7 +11,8 @@ code {
 
 .main-wrapper {
   margin: 0 auto;
-  max-width: 700px;
+  padding: 10rem;
+  font-size: xx-large;
 }
 
 h1 {
@@ -110,4 +111,10 @@ button {
 
 button:hover {
   background: #fbc89d;
+}
+
+footer {
+  font-size: xxx-large;
+  position: absolute; 
+  left: 0 ; right: 0; bottom: 0; 
 }
