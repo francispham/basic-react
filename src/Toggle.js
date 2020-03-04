@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 const Toggle = () => {
     const [isToggle, setToggle] = useState(false);
-
+    
+    const ref = useRef()
+    console.log('ref: ', ref.current);
+    
     return (
-        <div>
-            {isToggle && <h2>HELLO</h2>}
+        <div ref={ref}>
+            {
+                isToggle && 
+                <button onClick={() => ref.current.classList.add('new-class-from-ref')}>
+                HELLO
+                </button>
+            }
             <button onClick={()=> setToggle(!isToggle)}>Toggle</button>
         </div>
     );
