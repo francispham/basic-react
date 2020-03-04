@@ -10,9 +10,25 @@ const ReactHooks = () => {
             <h1>Introduce React Hooks</h1>
             <Toggle />
             <h3>{name}</h3>
-            <input type="text" onChange={e => setName(e.target.value)} value={name} />
+            <form onSubmit={e => {
+                e.preventDefault();
+                formSubmit(name, setName);
+            }}>
+                <input 
+                    type="text" 
+                    onChange={e => setName(e.target.value)} 
+                    value={name} 
+                />
+                <button>Submit</button>
+            
+            </form>
         </div>
     );
+}
+
+const formSubmit = (value, setValue) => {
+    console.log('Email Sent to ' + value + '!');
+    setValue(''); //This will Clear the Input after Form is Submitted
 }
 
 export default ReactHooks;
