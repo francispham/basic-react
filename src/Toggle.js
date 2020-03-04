@@ -1,11 +1,16 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
+import { UserContext } from './ReactHooks';
 
 const Toggle = () => {
     const [isToggle, setToggle] = useState(false);
+
+    const userInfo = useContext(UserContext);
+    console.log('userInfo: ', userInfo);
     
     const ref = useRef()
     console.log('ref: ', ref.current);
-    
+    if(!userInfo.user) return null;
+
     return (
         <div ref={ref}>
             {
