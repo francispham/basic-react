@@ -114,7 +114,11 @@ button:hover {
 }
 
 footer {
-  font-size: xxx-large;
-  position: absolute; 
-  left: 0 ; right: 0; bottom: 0; 
+  font-size: x-large;
+  position: sticky; 
+}
+
+a {
+  text-decoration: none;
+  color: burlywood;
 }

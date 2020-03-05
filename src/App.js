@@ -12,6 +12,7 @@ import './App.css';
 import MoviesList from './MoviesList';
 import MovieDetail from './MovieDetail';
 import ReactHooks from './ReactHooks';
+import DishesList from './DishesList';
 
 const App = () => (
   <Router>
@@ -24,6 +25,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={MoviesList} />
         <Route exact path="/ReactHooks" component={ReactHooks} />
+        <Route exact path="/DishesList" component={DishesList} />
         <Route exact path="/:id" component={MovieDetail} />
       </Switch>
       <footer>
