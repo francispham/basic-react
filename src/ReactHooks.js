@@ -2,7 +2,7 @@ import React, { createContext } from 'react';
 import Toggle from './Toggle';
 import Counter from './Counter';
 
-import useTitleInput from './hooks/useTitleInput';
+import { useTitleInput } from './hooks/useTitleInput';
 
 export const UserContext = createContext();
 

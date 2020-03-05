@@ -8,5 +8,5 @@ function useTitleInput(initialValue) {
     return [value, setValue];
 };
 
-export default useTitleInput;
+export { useTitleInput };
 
