@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, useMemo } from 'react';
 import Toggle from './Toggle';
 import Counter from './Counter';
 
@@ -9,6 +9,14 @@ export const UserContext = createContext();
 const ReactHooks = () => {
     const [name, setName] = useTitleInput('');
 
+    const reverseWord = word => {
+        console.log('Function Called');
+        return word.split("").reverse().join("");
+    };
+    const title = 'Introduce React Hooks';
+    const TitleReversed = useMemo(() => reverseWord(title), [title]);
+    // As long as 'title' won't change, useMemo() will prevent reverseWord() to call! 
+
     return (
         <UserContext.Provider
             value={{
@@ -16,7 +24,7 @@ const ReactHooks = () => {
             }}
         >
             <div className="main-wrapper">
-                <h1>Introduce React Hooks</h1>
+                <h1>{TitleReversed}</h1>
                 <Counter />
                 <br />
                 <Toggle />
