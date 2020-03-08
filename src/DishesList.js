@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import DishForm from './DishForm';
+
 import { useTitleInput } from './hooks/useTitleInput';
 
 const DishesList = () => {
@@ -24,6 +26,7 @@ const DishesList = () => {
     return (
         <div className="main-wrapper">
             <h1>Delicious Dishes</h1>
+            <Trigger />
             <h3>{name}</h3>
             <form
                 onSubmit={e => {
@@ -49,7 +52,6 @@ const DishesList = () => {
                     </div>
                 </article>
             ))}
-            <Trigger />
         </div>
     )
 };
@@ -62,6 +64,7 @@ const Trigger = () => {
                 isToggle &&
                 <div>
                     No Trigger useEffect in DishesList Component!
+                    <DishForm />
                 </div>
             }
             &nbsp;
