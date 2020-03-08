@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useTitleInput } from './hooks/useTitleInput';
 
 const DishesList = () => {
+    console.log('ran')
     const [name, setName] = useTitleInput('');
     const [dishes, setDishes] = useState([]);
     
@@ -16,7 +17,9 @@ const DishesList = () => {
 
     useEffect(() => {
         fetchDishes();
-    }, []);
+    }, [name]); 
+    // [] turns fetchDishes() into 'componentDidMount()'
+    // [name] triggers fetchDishes() only if 'name' is changed!
 
     return (
         <div className="main-wrapper">
@@ -46,9 +49,25 @@ const DishesList = () => {
                     </div>
                 </article>
             ))}
+            <Trigger />
         </div>
     )
-
 };
+
+const Trigger = () => {
+    const [isToggle, setToggle] = useState(false);
+    return (
+        <div>
+            {
+                isToggle &&
+                <div>
+                    No Trigger useEffect in DishesList Component!
+                </div>
+            }
+            &nbsp;
+            <button onClick={() => setToggle(!isToggle)}>No Trigger</button>
+        </div>
+    )
+}
 
 export default DishesList;
