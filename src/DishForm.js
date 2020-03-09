@@ -3,10 +3,10 @@ import React, { useRef } from 'react';
 import { useBodyScrollLock } from './hooks/bodyScrollLock';
 import { useOnClickOutside } from './hooks/useOnClickOutside';
 
-const DishForm = () => {
+const DishForm = ({ setToggle }) => {
     const ref = useRef();
 
-    useOnClickOutside(ref);
+    useOnClickOutside(ref, setToggle);
 
     useBodyScrollLock();
     return (

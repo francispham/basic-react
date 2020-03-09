@@ -53,24 +53,23 @@ const DishesList = () => {
                 </article>
             ))}
         </div>
-    )
+    );
 };
 
 const Trigger = () => {
     const [isToggle, setToggle] = useState(false);
     return (
         <div>
-            {
-                isToggle &&
+            {isToggle ? (
                 <div>
                     No Trigger useEffect in DishesList Component!
-                    <DishForm />
+                    <DishForm setToggle={setToggle} />
                 </div>
-            }
-            &nbsp;
-            <button onClick={() => setToggle(!isToggle)}>No Trigger</button>
+            ): (
+                <button onClick={() => setToggle(!isToggle)}>Open Modal</button>
+            )}
         </div>
-    )
-}
+    );
+};
 
 export default DishesList;
