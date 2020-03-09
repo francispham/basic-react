@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSpring, animated } from "react-spring";
 
 import DishForm from './DishForm';
 
@@ -23,9 +24,13 @@ const DishesList = () => {
     // [] turns fetchDishes() into 'componentDidMount()'
     // [name] triggers fetchDishes() only if 'name' is changed!
 
+    // Use React Spring:
+    const props = useSpring({ opacity: 1, from: { opacity: 0 } });
+    console.log('Props: ', props);
+
     return (
         <div className="main-wrapper">
-            <h1>Delicious Dishes</h1>
+            <animated.h1 style={props}>Delicious Dishes</animated.h1>
             <Trigger />
             <h3>{name}</h3>
             <form
@@ -41,7 +46,7 @@ const DishesList = () => {
                 <button>Submit</button>
             </form>
             <br />
-            {dishes.map(dish => (
+            {dishes && dishes.map(dish => (
                 <article className="dish-card dish-card--withImage">
                     <h3>{dish.name}</h3>
                     <p>{dish.desc}</p>
