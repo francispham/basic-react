@@ -10,7 +10,7 @@ import keys from './config/keys';
 const Movie = ({ movie }) => (
   // {movie} is shorted for props because of ES6 Object Destructuring
   <Link to={`/${movie.id}`} >
-    <Overdrive id={movie.id}>
+    <Overdrive id={movie.id.toString()}>
       <Poster src={`${keys.POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
     </Overdrive>
   </Link>
